@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style/icon.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <title>E-katalog clone</title>
+</head>
+<body>
+<div class="wrapper p-4">
+  <nav class="navbar bg-body-tertiary">
+    <div class="container">
+      <span class="navbar-brand mb-0 h1">MyOk.katalog</span>
+    </div>
+    <div class="btn-group">
+      <a id="compare" href="compare.html?keySelector=toCompare" class="btn btn-warning">Порівняти<span id="toCompare-counter"></span></a>
+      <a href="#" class="btn btn-success">Улюблені<span id="favorite-counter"></span></a>
+    </div>
+  </nav>
+  <div id="sort-container" class="d-flex">
+    <div class="p-2">Виводити</div>
+    <select name="" id="select">
+      <option value="byDefaulte"> -- </option>
+      <option value="minToMax">Від дешевих до дорогих</option>
+      <option value="maxToMin">Від дорогих до дешевих</option>
+      <option value="byName">За назвою</option>
+    </select>
+  </div>
+  <div class="row">
+    <div id="cards-container" class="col-9">
+    </div>
+    <div class="col-3 text-bg-warning p-3">
+      <form action="" name="filter_form" class="d-flex flex-column">
+        <div id="price" class="input-group" data-filter="price">
+          <h5 class="w-100">Ціна</h5>
+          <div class="container d-flex">
+            <label for="min-price" class="me-2">Від:</label>
+            <input type="number" name="min-price" max="" max="" class="w-25 me-3">
+            <label for="max-price" class="me-2">До:</label>
+            <input type="number" name="max-price" min="" max="" class="w-25">
+          </div>
+        </div>
+        <div id="manufacturer" class="input-group d-flex flex-column" data-filter="manufacturer">
+          <h5 class="w-100">Виробники:</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="baseus" id="baseus">
+            <label class="form-check-label" for="baseus">Baseus</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="borofone" id="borofone">
+            <label class="form-check-label" for="baseus">Borofone</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="hama" id="hama">
+            <label class="form-check-label" for="baseus">Hama</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="intenso" id="intenso">
+            <label class="form-check-label" for="intenso">Intenso</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="romoss" id="romoss">
+            <label class="form-check-label" for="romoss">Romoss</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="silicon-power" id="silicon-power">
+            <label class="form-check-label" for="silicon-power">Silicon Power</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="xiaomi" id="xiaomi">
+            <label class="form-check-label" for="xiaomi">Xiaomi</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="blow" id="blow">
+            <label class="form-check-label" for="blow">BLOW</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="colorWay" id="colorWay">
+            <label class="form-check-label" for="colorWay">ColorWay</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="hoco" id="hoco">
+            <label class="form-check-label" for="hoco">Hoco</label>
+          </div>
+        </div>
+        <div id="battery_capacity" class="input-group" data-filter="battery_capacity">
+          <h5 class="w-100">Ємність:</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="9999" id="les10000">
+            <label class="form-check-label" for="les10000">< 10 000 мАгод</label>
+          </div>
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="10000" id="10000">
+            <label class="form-check-label" for="10000">10 000 мАгод</label>
+          </div>
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="15000" id="15000">
+            <label class="form-check-label" for="15000">~ 15 000 мАгод</label>
+          </div>
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="20000" id="20000">
+            <label class="form-check-label" for="hoco">20 000 мАгод</label>
+          </div>
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="25000" id="25000">
+            <label class="form-check-label" for="hoco">~ 25 000 мАгод</label>
+          </div>
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="30000" id="30000">
+            <label class="form-check-label" for="hoco">30 000 мАгод</label>
+          </div>
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="40000" id="40000">
+            <label class="form-check-label" for="hoco">40 000 мАгод</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="40 001" id="more40000">
+            <label class="form-check-label" for="hoco">>40 000 мАгод</label>
+          </div>
+        </div>
+        <div id="USB_A" class="input-group" data-filter="USB_A">
+          <h5 class="w-100">Портів USB А для зарядки:</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" id="oneUSB">
+            <label class="form-check-label" for="oneUSB">1 шт</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="2" id="twoUSB">
+            <label class="form-check-label" for="twoUSB">2 шт</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="3" id="threeUSB">
+            <label class="form-check-label" for="threeUSB">3 шт</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="4" id="fourUSB">
+            <label class="form-check-label" for="fourUSB">4 шт або більше</label>
+          </div>
+        </div>
+        <div id="USB_type_C" class="input-group" data-filter="USB_type_C">
+          <h5 class="w-100">Портів USB type C для зарядки:</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" id="oneUSBtypeC">
+            <label class="form-check-label" for="oneUSBtypeC">1 шт</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="2" id="twoUSBtypeC">
+            <label class="form-check-label" for="twoUSBtypeC  ">2 шт</label>
+          </div>
+        </div>
+        <div id="powerbank_charging_enter" class="input-group" data-filter="powerbank_charging_enter">
+          <h5 class="w-100">Вбудований кабель(вихід):</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="microUSB" id="microUSBExit">
+            <label class="form-check-label" for="microUSBExit">microUSB</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="uSBTypeC" id="uSBTypeCexit">
+            <label class="form-check-label" for="uSBTypeCexit">USB type C</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="lightning" id="lightningExit">
+            <label class="form-check-label" for="lightningExit">Lightning</label>
+          </div>
+        </div>
+        <div id="adapters" class="input-group" data-filter="adapters">
+          <h5 class="w-100">Комплектні дроти:</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="microUSB" id="microUSBCable">
+            <label class="form-check-label" for="microUSBCable">microUSB</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="uSBTypeC" id="uSBTypeCCable">
+            <label class="form-check-label" for="uSBTypeCCable">USB type C</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="lightning" id="lightningCable">
+            <label class="form-check-label" for="lightningCable">Lightning</label>
+          </div>
+        </div>
+        <!-- <div  class="input-group" >
+          <h5 class="w-100">Функції та можливості:</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="fastСharging" id="fastСharging">
+            <label class="form-check-label" for="fastСharging">Швидка зарядка гаджетів</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="fastСhargingOfPB" id="fastСhargingOfPB">
+            <label class="form-check-label" for="fastСhargingOfPB">Швидка зарядка powerbank(а)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="lightning" id="lightningCable">
+            <label class="form-check-label" for="lightningCable">Lightning</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="laptopCharging" id="laptopCharging">
+            <label class="form-check-label" for="laptopCharging">Зарядка ноутбуків PD</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="chargingPortDC12V" value="lightning" id="chargingPortDC12V">
+            <label class="form-check-label" for="chargingPortDC12V">Порт зарядки DC 12V</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="wirelessCharging" id="wirelessCharging">
+            <label class="form-check-label" for="wirelessCharging">Бездротова зарядка</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="throughCharging" id="throughCharging">
+            <label class="form-check-label" for="throughCharging">Наскрізна зарядка</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="magSafe" id="magSafe">
+            <label class="form-check-label" for="magSafe">Магнітне кріплення(MagSafe)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="sertificationMFI" id="sertificationMFI">
+            <label class="form-check-label" for="sertificationMFI"> Сертифікація MFI</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="infodisplay" id="infodisplay">
+            <label class="form-check-label" for="infodisplay">Інфодисплей</label>
+          </div>
+        </div> -->
+        <!-- <div class="input-group">
+          <h5 class="w-100">Входи зарядки powerbank(а):</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="microUSB" id="microUSBCharge">
+            <label class="form-check-label" for="microUSBCharge">microUSB</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="uSBTypeC" id="uSBTypeCCharge">
+            <label class="form-check-label" for="uSBTypeCCharge">USB type C</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="lightning" id="lightningCharge">
+            <label class="form-check-label" for="lightningCharge">Lightning</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="dCCharge" id="dCCharge">
+            <label class="form-check-label" for="dCCharge">DC вхід</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="built-inConnector" id="built-inConnector">
+            <label class="form-check-label" for="built-inConnector">Вбудований конектор</label>
+          </div>
+        </div> -->
+        <div id="additional_features" class="input-group" data-filter="additional_features">
+          <h5 class="w-100">Додатково:</h5>
+          <div  class="form-check">
+            <input class="form-check-input" type="checkbox" value="flashlight" id="flashlight">
+            <label class="form-check-label" for="flashlight">Ліхтарик</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="infodisplay" id="infodisplay">
+            <label class="form-check-label" for="waterProtection">інфо-дисплей</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="waterProtection" id="waterProtection">
+            <label class="form-check-label" for="waterProtection">Захист від пилу та води</label>
+          </div>  
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="impactProtection" id="impactProtection">
+            <label class="form-check-label" for="impactProtection">Ударозахист</label>
+          </div>
+        </div>
+        <button type="submit" id="serchBtn">Шукати</button>
+      </form>
+    </div>
+  </div>
+</div>
+  <script src="../JS/main.js" type="module"></script>
+</body>
+</html>

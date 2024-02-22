@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Підключення Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+  <div class="container mt-5">
+    <table class="table table-bordered">
+      <tbody>
+        <!-- Виклик функції для рендерінгу таблиці при завантаженні сторінки -->
+        <script>
+          var data = [
+            { adapters: "microUSB", additional_features: "", battery_capacity: "20000 мАгод", battery_type: "Li-Ion", url: "../img/id_2_1.jpg" },
+            { adapters: "microUSB", additional_features: "інфо-дисплей", battery_capacity: "30000 мАгод", battery_type: "Li-Pol", body_material: "пластик", color: ['black', 'white'] }
+          ];
+
+          // Функція для динамічного заповнення таблиці даними
+          function renderTable() {
+            var tableBody = document.getElementsByTagName("tbody")[0];
+            tableBody.innerHTML = ""; // Очистити таблицю перед додаванням нових даних
+
+            for (var i = 0; i < data.length; i++) {
+              var row = document.createElement("tr");
+              row.innerHTML = `
+                <td>Адаптери: ${data[i].adapters}</td>
+              `;
+              tableBody.appendChild(row);
+
+              row = document.createElement("tr");
+              row.innerHTML = `
+                <td>Додаткові функції: ${data[i].additional_features}</td>
+              `;
+              tableBody.appendChild(row);
+
+              row = document.createElement("tr");
+              row.innerHTML = `
+                <td>Ємність батареї: ${data[i].battery_capacity}</td>
+              `;
+              tableBody.appendChild(row);
+
+              row = document.createElement("tr");
+              row.innerHTML = `
+                <td>Тип батареї: ${data[i].battery_type}</td>
+              `;
+              tableBody.appendChild(row);
+
+              row = document.createElement("tr");
+              row.innerHTML = `
+                <td>Матеріал корпусу: ${data[i].body_material ? data[i].body_material : "-"}</td>
+              `;
+              tableBody.appendChild(row);
+
+              row = document.createElement("tr");
+              row.innerHTML = `
+                <td>Колір: ${data[i].color ? data[i].color.join(", ") : "-"}</td>
+              `;
+              tableBody.appendChild(row);
+
+              row = document.createElement("tr");
+              row.innerHTML = `
+                <td><img src="${data[i].url}" alt="Зображення"></td>
+              `;
+              tableBody.appendChild(row);
+            }
+          }
+
+          renderTable();
+        </script>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Підключення Bootstrap та jQuery (обов'язково для коректної роботи Bootstrap) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
